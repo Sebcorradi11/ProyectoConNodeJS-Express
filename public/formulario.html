@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Contacto</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Formulario de Contacto</h2>
+        <form action="/formulario" method="get">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="apellido">Apellido</label>
+                    <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Apellido">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+        
+        <!-- Contenedor para mostrar los valores del formulario -->
+        <div id="valoresFormulario" class="mt-4">
+            <!-- Aquí se mostrarán los valores del formulario -->
+        </div>
+    </div>
+
+    <!-- Bootstrap JS (opcional, para algunos componentes) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Script personalizado para manejar el envío del formulario -->
+    <script>
+        $(document).ready(function() {
+            $('#contactoForm').submit(function(event) {
+                // Evitar el comportamiento predeterminado del formulario
+                event.preventDefault();
+
+                // Obtener los valores del formulario
+                const nombre = $('#nombre').val();
+                const apellido = $('#apellido').val();
+
+                // Mostrar los valores en el contenedor de la página
+                $('#valoresFormulario').html(`<h2>Valores del Formulario</h2><p>Nombre: ${nombre}</p><p>Apellido: ${apellido}</p>`);
+            });
+        });
+    </script>
+</body>
+</html>
+
